@@ -239,17 +239,27 @@ section { margin-bottom: 2.8rem; }
 .bibtex-block.open { display: block; }
 
 .toc-lightbox {
-  display: none;
+  display: none !important;
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 1000;
   align-items: center;
   justify-content: center;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.85);
 }
-.toc-lightbox.show { display: flex; }
-.toc-lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+.toc-lightbox.show { display: flex !important; }
+.toc-lightbox img {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: 90vw !important;
+  max-height: 85vh !important;
+  object-fit: contain;
+}
 .toc-lightbox-close {
   position: absolute;
   top: 1rem;
