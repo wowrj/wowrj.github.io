@@ -181,6 +181,7 @@ section { margin-bottom: 2.8rem; }
   overflow: hidden;
 }
 .pub-thumb img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 5px; }
+.pub-thumb img { cursor: zoom-in; }
 .pub-title { font-weight: 600; font-size: 1rem; line-height: 1.45; margin-bottom: 0.28rem; }
 .pub-title a { color: var(--text); text-decoration: none; }
 .pub-title a:hover { color: var(--primary); }
@@ -236,6 +237,32 @@ section { margin-bottom: 2.8rem; }
   grid-column: 1 / -1;
 }
 .bibtex-block.open { display: block; }
+
+.toc-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+}
+.toc-lightbox.show { display: flex; }
+.toc-lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+.toc-lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox-modal.toc-mode .lightbox-nav,
+.lightbox-modal.toc-mode .lightbox-counter { display: none; }
 
 /* ─── EXP / EDUCATION ─── */
 .exp-list { display: flex; flex-direction: column; }

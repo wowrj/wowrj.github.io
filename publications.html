@@ -46,7 +46,7 @@
     <div class="pub-list">
       <div class="pub-card">
         <div class="pub-thumb">
-          <img src="assets/pub_pic/2026_jpcb.png" alt="TOC graphic for A Coarse-Grained Model for Small Organic Molecules with Optimized Lennard-Jones Parameters">
+          <img src="assets/pub_pic/2026_jpcb.png" alt="TOC graphic for A Coarse-Grained Model for Small Organic Molecules with Optimized Lennard-Jones Parameters" onclick="openTocLightbox(this)">
         </div>
         <div class="pub-info">
           <div class="pub-title">
@@ -73,7 +73,7 @@
 
       <div class="pub-card">
         <div class="pub-thumb">
-          <img src="assets/pub_pic/2026_jctc.png" alt="TOC graphic for Measuring Differences in Protein Allosteric Graphs Constructed via Molecular Dynamics Simulations">
+          <img src="assets/pub_pic/2026_jctc.png" alt="TOC graphic for Measuring Differences in Protein Allosteric Graphs Constructed via Molecular Dynamics Simulations" onclick="openTocLightbox(this)">
         </div>
         <div class="pub-info">
           <div class="pub-title">
@@ -110,7 +110,7 @@
 
       <div class="pub-card">
         <div class="pub-thumb">
-          <img src="assets/pub_pic/2025_jpcl.png" alt="TOC graphic for Coarse-Grained Simulation of Persistence Length and Twisting Dynamics of Micrometer-Scale Microtubules">
+          <img src="assets/pub_pic/2025_jpcl.png" alt="TOC graphic for Coarse-Grained Simulation of Persistence Length and Twisting Dynamics of Micrometer-Scale Microtubules" onclick="openTocLightbox(this)">
         </div>
         <div class="pub-info">
           <div class="pub-title">
@@ -140,6 +140,11 @@
 
 </div>
 
+<div class="toc-lightbox" id="tocLightbox" role="dialog" aria-modal="true" aria-label="Enlarged TOC graphic">
+  <button class="toc-lightbox-close" type="button" onclick="closeTocLightbox()" aria-label="Close enlarged TOC">&times;</button>
+  <img id="tocLightboxImage" src="" alt="">
+</div>
+
 <footer>
   <p>&copy; 2025 Renjie Zhu &nbsp;·&nbsp; <a href="mailto:rjzhu811@gmail.com">rjzhu811@gmail.com</a></p>
 </footer>
@@ -152,6 +157,28 @@
     const open = block.classList.toggle('open');
     btn.textContent = open ? 'Hide BibTeX' : 'BibTeX';
   }
+
+  function openTocLightbox(source) {
+    const modal = document.getElementById('tocLightbox');
+    const image = document.getElementById('tocLightboxImage');
+    image.src = source.src;
+    image.alt = source.alt;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeTocLightbox() {
+    document.getElementById('tocLightbox').classList.remove('show');
+    document.body.style.overflow = 'auto';
+  }
+
+  document.getElementById('tocLightbox').addEventListener('click', function (event) {
+    if (event.target === this) closeTocLightbox();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeTocLightbox();
+  });
 </script>
 </body>
 </html>

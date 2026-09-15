@@ -310,7 +310,7 @@
 
       <div class="pub-card">
         <div class="pub-thumb">
-          <img src="assets/pub_pic/2026_jpcb.png" alt="TOC graphic for A Coarse-Grained Model for Small Organic Molecules with Optimized Lennard-Jones Parameters">
+          <img src="assets/pub_pic/2026_jpcb.png" alt="TOC graphic for A Coarse-Grained Model for Small Organic Molecules with Optimized Lennard-Jones Parameters" onclick="openTocLightbox(this)">
         </div>
         <div class="pub-info">
           <div class="pub-title">
@@ -337,7 +337,7 @@
 
       <div class="pub-card">
         <div class="pub-thumb">
-          <img src="assets/pub_pic/2026_jctc.png" alt="TOC graphic for Measuring Differences in Protein Allosteric Graphs Constructed via Molecular Dynamics Simulations">
+          <img src="assets/pub_pic/2026_jctc.png" alt="TOC graphic for Measuring Differences in Protein Allosteric Graphs Constructed via Molecular Dynamics Simulations" onclick="openTocLightbox(this)">
         </div>
         <div class="pub-info">
           <div class="pub-title">
@@ -419,14 +419,26 @@
     currentPhotoIndex = index;
     const modal = document.getElementById('lightboxModal');
     const img = document.getElementById('lightboxImg');
+    modal.classList.remove('toc-mode');
     img.src = photoSources[currentPhotoIndex];
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
     updateCounter();
   }
+
+  function openTocLightbox(source) {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImg');
+    modal.classList.add('toc-mode');
+    img.src = source.src;
+    img.alt = source.alt;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
   
   function closeLightbox() {
-    document.getElementById('lightboxModal').classList.remove('show');
+    const modal = document.getElementById('lightboxModal');
+    modal.classList.remove('show', 'toc-mode');
     document.body.style.overflow = 'auto';
   }
   
